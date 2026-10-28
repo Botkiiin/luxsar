@@ -1,25 +1,12 @@
-# LUXSAR Premium Auto Detailing
+# LUXAR Premium Auto Detailing — update
+Upload `index.html`, `styles.css`, `script.js`, and the `assets` folder to the root of GitHub repository `Botkiiin/luxsar`, replacing matching files. Commit to `main`. In Settings → Pages, choose Deploy from a branch → `main` → `/(root)`.
 
-Responsive static website starter for GitHub Pages.
+Confirmed details:
+- Zwanenburgerdijk 328A, 1161 NN Zwanenburg
+- Phone: 06 43620017; tel:+31643620017
+- WhatsApp: https://wa.me/31643620017
+- Hours: Mon–Fri 09:00–19:00; Sat 09:00–17:00; Sun closed
+- Instagram: https://www.instagram.com/luxar_detailing_nl/
+- TikTok: https://www.tiktok.com/@luxar_auto_detailing
 
-## Files
-- `index.html` — site pages/sections and booking form
-- `styles.css` — black and gold responsive design
-- `script.js` — mobile menu, demo booking form, WhatsApp setup
-- `assets/luxsar-logo.jpeg` — logo supplied by the owner
-
-## Preview locally
-Open `index.html` in a browser.
-
-## Publish with GitHub Pages
-1. Create a GitHub repository, for example `luxsar-detailing`.
-2. Upload all files and the `assets` folder to the repository root.
-3. In repository Settings → Pages, choose `Deploy from a branch`, branch `main`, folder `/ (root)`.
-4. Save and wait for GitHub Pages to publish.
-
-## Before publishing
-1. In `script.js`, replace the empty `WHATSAPP_NUMBER` with the business WhatsApp number in international format without `+` or spaces, e.g. `31612345678`.
-2. Replace example prices, contact details, location, opening hours and business claims with confirmed information.
-3. The booking form is demo-only; it does not save bookings or check live availability. Connect a booking service or backend before using it with customers.
-4. Add real, licensed car photos to replace the placeholder panels.
-5. Add a privacy policy and terms appropriate to the business and its booking process.
+The uploaded hero photo is included byte-for-byte as `assets/luxar-hero-original.JPG` if it was available in the current session. The Video’s cards are placeholders linking to Instagram until actual Reel URLs are supplied. The enquiry form opens WhatsApp with a prefilled message; it does not store bookings or check a live calendar. No prices are displayed because final prices have not been confirmed.
