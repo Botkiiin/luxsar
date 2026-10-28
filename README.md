@@ -1,12 +1,16 @@
-# LUXAR Premium Auto Detailing — update
-Upload `index.html`, `styles.css`, `script.js`, and the `assets` folder to the root of GitHub repository `Botkiiin/luxsar`, replacing matching files. Commit to `main`. In Settings → Pages, choose Deploy from a branch → `main` → `/(root)`.
+LUXAR Premium Auto Detailing — bijgewerkte statische website
 
-Confirmed details:
-- Zwanenburgerdijk 328A, 1161 NN Zwanenburg
-- Phone: 06 43620017; tel:+31643620017
-- WhatsApp: https://wa.me/31643620017
-- Hours: Mon–Fri 09:00–19:00; Sat 09:00–17:00; Sun closed
-- Instagram: https://www.instagram.com/luxar_detailing_nl/
-- TikTok: https://www.tiktok.com/@luxar_auto_detailing
+Inhoud:
+- index.html, styles.css, script.js
+- assets/luxar-logo.jpeg: aangeleverd LUXAR-logo
+- assets/luxar-hero-original.JPG: originele hero-foto, ongewijzigd
+- assets/detailing-01.JPG t/m detailing-08.JPG: foto's van werkzaamheden
 
-The uploaded hero photo is included byte-for-byte as `assets/luxar-hero-original.JPG` if it was available in the current session. The Video’s cards are placeholders linking to Instagram until actual Reel URLs are supplied. The enquiry form opens WhatsApp with a prefilled message; it does not store bookings or check a live calendar. No prices are displayed because final prices have not been confirmed.
+De website toont zes Instagram Reels via de officiële Instagram embed. Reels moeten openbaar en insluitbaar zijn; Instagram kan bezoekers soms vragen de video op Instagram te openen.
+
+Publiceren op GitHub Pages:
+1. Open repository Botkiiin/luxsar en ga naar Code.
+2. Open de bestanden index.html en styles.css en vervang ze door de versies uit deze map; voeg de assets toe aan de map assets.
+3. Commit de wijzigingen naar main. GitHub Pages bouwt de site automatisch opnieuw.
+
+Afspraakformulier opent WhatsApp met een vooraf ingevuld bericht. Het is geen live boekingskalender en slaat geen gegevens op.
