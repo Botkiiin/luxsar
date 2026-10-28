@@ -1,16 +1,19 @@
-LUXAR Premium Auto Detailing — bijgewerkte statische website
+# LUXAR Premium Auto Detailing website
 
-Inhoud:
-- index.html, styles.css, script.js
-- assets/luxar-logo.jpeg: aangeleverd LUXAR-logo
-- assets/luxar-hero-original.JPG: originele hero-foto, ongewijzigd
-- assets/detailing-01.JPG t/m detailing-08.JPG: foto's van werkzaamheden
+Static Dutch-language website for GitHub Pages.
 
-De website toont zes Instagram Reels via de officiële Instagram embed. Reels moeten openbaar en insluitbaar zijn; Instagram kan bezoekers soms vragen de video op Instagram te openen.
+## Included
+- Original Range Rover workshop photo as hero image (not edited; `object-fit: contain` keeps the car uncropped).
+- Logo cropped only to remove empty black canvas around the exact logo image supplied by the owner; logo artwork itself is unchanged.
+- Separate `assets/before-after/` pair and `assets/work-photos/` gallery.
+- Six Instagram Reels embeds in a horizontal carousel: three visible on desktop with arrow controls, two on medium screens, one on mobile.
+- WhatsApp enquiry form and contact details.
 
-Publiceren op GitHub Pages:
-1. Open repository Botkiiin/luxsar en ga naar Code.
-2. Open de bestanden index.html en styles.css en vervang ze door de versies uit deze map; voeg de assets toe aan de map assets.
-3. Commit de wijzigingen naar main. GitHub Pages bouwt de site automatisch opnieuw.
+## Publish with GitHub Pages
+Upload/replace the files in the repository root, keeping the `assets` folder structure. GitHub Pages is configured from branch `main`, folder `/ (root)`. After committing, allow a few minutes for deployment.
 
-Afspraakformulier opent WhatsApp met een vooraf ingevuld bericht. Het is geen live boekingskalender en slaat geen gegevens op.
+## Instagram note
+Instagram embeds require public, embeddable Reels and a connection to Instagram. Instagram may choose to show its own embed UI or ask visitors to open the Reel.
+
+## Booking note
+The form opens WhatsApp with a prefilled message; it is not a live calendar or server-side booking system.
