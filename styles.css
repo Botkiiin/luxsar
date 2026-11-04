@@ -60,3 +60,26 @@
 .reel-open:hover{color:#fff}
 @media(max-width:900px){.hero-wall-logo{right:5%;top:7%;width:145px}.instagram-track{grid-auto-columns:calc((100% - 16px)/2)}.instagram-reel iframe{height:470px}}
 @media(max-width:600px){.hero-wall-logo{right:5%;top:5%;width:105px}.header-actions #languageSelect{min-width:100px;padding:8px 20px 8px 7px;font-size:11px}.instagram-track{grid-auto-columns:82%;gap:12px}.instagram-reel iframe{height:490px}}
+
+/* Revision: standalone price page, proper vehicle silhouettes and reliable flag picker */
+.hero-wall-logo{top:16%;right:8.5%;width:clamp(150px,17vw,225px);max-height:125px;object-fit:contain;mix-blend-mode:screen;opacity:1;filter:none}
+.language-picker{position:relative;display:inline-flex;align-items:center}
+.language-current{display:flex;align-items:center;gap:9px;min-width:82px;padding:9px 11px;border:1px solid rgba(218,174,99,.72);border-radius:7px;background:#10100f;color:#f6f0e5;font:600 13px 'DM Sans',sans-serif;cursor:pointer}
+.language-current svg,.language-option svg{width:23px;height:16px;display:block;border-radius:2px;box-shadow:0 0 0 1px rgba(255,255,255,.2)}
+.lang-chevron{margin-left:auto;color:#d9ad66;font-size:16px}
+.language-menu{position:absolute;z-index:30;right:0;top:calc(100% + 8px);min-width:158px;padding:6px;background:#111;border:1px solid rgba(218,174,99,.5);border-radius:9px;box-shadow:0 12px 30px #000a}
+.language-menu[hidden]{display:none}
+.language-option{width:100%;display:flex;align-items:center;gap:10px;padding:10px;border:0;border-radius:6px;background:transparent;color:#f6f0e5;text-align:left;font:500 13px 'DM Sans',sans-serif;cursor:pointer}
+.language-option:hover{background:#29231a;color:#f1c578}
+.language-native{position:absolute!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important;overflow:hidden!important}
+.prices-page-main{padding-top:34px;min-height:70vh}
+.prices-page-main .pricing-section{max-width:1440px;margin:0 auto;border:0;background:transparent}
+.prices-back{max-width:1440px;margin:0 auto;padding:0 28px 45px}
+.site-footer{display:flex;justify-content:space-between;gap:20px;padding:22px clamp(25px,5vw,80px);border-top:1px solid rgba(218,174,99,.22);color:#aaa;font-size:12px}
+.site-footer a{color:#e8b75e;text-decoration:none}
+.tint-item .car-mark{width:58px;height:38px;border:0;border-radius:0;background:transparent;flex:0 0 58px}
+.car-mark svg{width:58px;height:34px;overflow:visible;fill:#d9ad66;stroke:#f4d28e;stroke-width:.7}
+.car-mark svg .window{fill:#171717;stroke:#e3bd7b;stroke-width:1}
+.car-mark svg circle{fill:#080808;stroke:#d9ad66;stroke-width:2}
+.tint-item strong{font-size:14px;white-space:nowrap}
+@media(max-width:600px){.hero-wall-logo{top:11%;right:5%;width:clamp(110px,28vw,155px)}.language-current{min-width:70px;padding:8px}.language-current svg{width:20px}.prices-page-main{padding-top:16px}.prices-back{padding:0 18px 30px}.site-footer{padding:18px;flex-wrap:wrap}.tint-item{gap:8px}.tint-item .car-mark{width:48px;flex-basis:48px}.car-mark svg{width:48px}.tint-item strong{font-size:12px}}
