@@ -160,3 +160,23 @@
  .polish-columns{grid-template-columns:1fr}
  .price-line{grid-template-columns:minmax(0,1fr) auto}
 }
+
+/* LUXAR interactive tinting selector */
+.tint-item-button{width:100%;font:inherit;color:inherit;text-align:left;cursor:pointer;background:rgba(255,255,255,.025);border:1px solid rgba(201,154,80,.18);border-radius:10px;transition:border-color .2s,background .2s,transform .2s}
+.tint-item-button:hover,.tint-item-button:focus-visible{border-color:#c99a50;background:rgba(201,154,80,.09);transform:translateY(-1px);outline:none}
+.tint-modal[hidden]{display:none}.tint-modal{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:20px}
+.tint-modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(7px)}
+.tint-modal-panel{position:relative;z-index:1;width:min(720px,100%);max-height:90vh;overflow:auto;padding:34px;border:1px solid rgba(201,154,80,.45);border-radius:18px;background:#101010;box-shadow:0 25px 90px rgba(0,0,0,.6)}
+.tint-modal-panel h2{font-family:'Playfair Display',serif;font-size:clamp(25px,4vw,36px);margin:4px 42px 8px 0;color:#f7f0e4}
+.tint-modal-subtitle{color:#d2b27c;margin:0 0 20px;font-weight:600}
+.tint-modal-close{position:absolute;right:18px;top:14px;border:0;background:transparent;color:#f5e9d5;font-size:32px;cursor:pointer}
+.tint-diagram-wrap{padding:18px 12px;background:#080808;border:1px solid rgba(255,255,255,.09);border-radius:12px}
+.tint-diagram-wrap svg{display:block;width:100%;height:auto;max-height:300px}
+.diagram-car-body{fill:#b88946;stroke:#e8c88f;stroke-width:4;stroke-linejoin:round}
+.diagram-window{fill:#202a30;stroke:#d8bd8b;stroke-width:4;transition:fill .2s}
+.diagram-window.is-highlighted{fill:#c99a50;stroke:#ffe0a8}
+.diagram-wheel{fill:#080808;stroke:#c99a50;stroke-width:7}
+.tint-diagram-legend{display:flex;gap:10px;align-items:flex-start;color:#bcb3a5;font-size:12px;line-height:1.5;margin:14px 0 22px}
+.tint-diagram-legend span:first-child{width:12px;height:12px;flex:0 0 12px;border-radius:3px;background:#c99a50;margin-top:2px}
+body.tint-modal-open{overflow:hidden}
+@media(max-width:600px){.tint-modal{padding:10px}.tint-modal-panel{padding:24px 16px}.tint-item-button{min-height:78px}}
