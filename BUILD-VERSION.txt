@@ -1,0 +1,10 @@
+LUXAR WEBSITE — VISUAL CORRECTIONS
+Build date: 2026-11-04
+Base: user's latest GitHub ZIP
+
+Corrections:
+- Removed separate hero logo overlay.
+- Replaced blurred wall mark area with a clean sign panel and user's original LUXAR logo composited into the hero background itself.
+- Redrew nine vehicle silhouettes for the window-tint catalogue.
+- Fixed price-row layout and wrapping to prevent text overlap in English, Russian, Ukrainian and Dutch.
+- Preserved homepage, price page, Instagram Reels, language selector, original logo source and existing photos.
