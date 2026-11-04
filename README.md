@@ -1,26 +1,20 @@
-# LUXAR Premium Auto Detailing website
+# LUXAR Premium Auto Detailing
+
+## Website package
+This ZIP contains the website ready to upload to the root of the GitHub repository `Botkiiin/luxsar`.
+
+## Approved hero design
+The approved generated LUXAR black-and-gold hero composition is used as the homepage banner. The supplied LUXAR logo is overlaid in the header. The generated artwork includes the luxury showroom, vehicle, hero headline, calls to action and feature highlights.
 
 ## Languages
-The website defaults to English and includes a language selector for English (EN), Russian (RU), and Ukrainian (UK). Text translations and the WhatsApp appointment message switch with the selected language.
+The language selector supports English (default), Russian, Ukrainian and Dutch. The rest of the website content and WhatsApp appointment request are translated when a language is selected. The generated hero artwork itself is a fixed English visual.
 
-## Upload to GitHub Pages
-1. Download and extract this ZIP.
-2. Open your repository: https://github.com/Botkiiin/luxsar
-3. Choose **Add file → Upload files**.
-4. Upload the contents of this folder (including `index.html`, `styles.css`, `script.js`, and the `assets` folder) into the repository root.
-5. Click **Commit changes**.
-6. Wait a few minutes and refresh your GitHub Pages site.
+## Upload
+1. Extract this ZIP.
+2. Open https://github.com/Botkiiin/luxsar
+3. Choose Add file → Upload files.
+4. Upload all extracted files and folders into the repository root, replacing files with the same names.
+5. Commit changes and wait for GitHub Pages to publish.
 
-Do not upload the ZIP file itself into the repository root as a substitute for its contents.
-
-## Notes
-- The site is static and compatible with GitHub Pages; no server is required.
-- Appointment requests open WhatsApp with a prefilled message; this is not a live booking system.
-- Instagram embeds require public/embeddable Reels and may be affected by Instagram's own restrictions.
-- Business contact details are in `index.html`.
-
-## Hero photo
-The homepage uses `assets/luxar-hero-wide.jpg`: a wide composition made from the original workshop photo, keeping the full vehicle visible and covering the license plate. The original source photo is also retained in the assets folder.
-
-## Updated homepage hero
-The homepage now uses a full-width, full-bleed showroom hero composition. The original LUXAR Range Rover workshop photo is displayed large on the right with a dark fade behind the headline on the left. The license plate is covered. The image is not used as a flat screenshot; navigation, headings, buttons and sections remain real HTML elements.
+## Booking
+The appointment form opens WhatsApp with a prefilled request. It is not a live booking calendar or automatic reservation system.

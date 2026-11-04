@@ -17,76 +17,23 @@ select.lang option{background:#111;color:#fff}
 /* Hero image: wide composition keeps the full car visible and the plate concealed. */
 .hero-visual img{width:100%;height:100%;max-height:none;object-fit:cover;object-position:center center;}
 
-/* LUXAR hero — full-bleed showroom composition, matching the approved premium reference */
-.hero{
-  position:relative;
-  display:flex;
-  align-items:center;
-  min-height:clamp(570px,48vw,760px);
-  padding:0 clamp(28px,5.4vw,100px);
-  gap:0;
-  overflow:hidden;
-  isolation:isolate;
-  background:#050505;
-}
-.hero-visual{
-  position:absolute;
-  inset:0;
-  z-index:-1;
-  width:100%;
-  height:100%;
-  min-height:0;
-  overflow:hidden;
-}
-.hero-visual img{
-  width:100%;
-  height:100%;
-  max-height:none;
-  object-fit:cover;
-  object-position:center center;
-  display:block;
-}
-.hero-visual:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:1;
-  background:linear-gradient(90deg,rgba(3,3,3,.98) 0%,rgba(3,3,3,.9) 24%,rgba(3,3,3,.46) 43%,rgba(3,3,3,.02) 72%),
-             linear-gradient(0deg,rgba(3,3,3,.42),transparent 28%,transparent 78%,rgba(3,3,3,.2));
-}
-.hero-copy{
-  width:min(47%,640px);
-  max-width:640px;
-  padding:54px 0 42px;
-  position:relative;
-  z-index:2;
-}
-.hero h1{font-size:clamp(38px,4.05vw,66px);line-height:1.08;max-width:650px}
-.hero-lead{font-size:clamp(15px,1.2vw,19px);max-width:430px;line-height:1.55;margin:18px 0 24px}
-.hero-actions{gap:14px}
-.btn-large{min-height:58px;padding:0 25px;font-size:14px;border-radius:8px}
-.benefits{max-width:640px;margin-top:38px;gap:18px}
-.benefits>div{font-size:12px;gap:12px}
-.benefit-icon{font-size:32px;min-width:34px}
-.hero-video-link{display:none}
-.topbar{height:76px;padding-left:clamp(24px,5.5vw,100px);padding-right:clamp(24px,5.5vw,100px);gap:clamp(16px,2.4vw,38px)}
-.logo{width:210px;height:66px}
-.logo img{object-fit:contain}
-.head-actions .btn{min-height:48px;padding:0 18px;font-size:13px}
-.lang{min-height:44px}
-@media(max-width:900px){
- .hero{min-height:650px;padding:0 28px;align-items:flex-end}
- .hero-visual:before{background:linear-gradient(0deg,rgba(3,3,3,.98) 0%,rgba(3,3,3,.82) 37%,rgba(3,3,3,.18) 78%,rgba(3,3,3,.15) 100%)}
- .hero-copy{width:100%;max-width:650px;padding:280px 0 38px}
- .hero h1{font-size:clamp(36px,7vw,58px)}
- .benefits{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:26px}
-}
-@media(max-width:560px){
- .hero{min-height:680px;padding:0 20px}
- .hero-copy{padding-top:280px}
- .hero-actions{display:grid;grid-template-columns:1fr}
- .hero-actions .btn{width:100%}
- .benefits{gap:15px}
- .topbar{height:66px}
- .logo{width:155px;height:54px}
+/* Exact approved LUXAR hero artwork. Keep the complete composition visible: no crop or black bands. */
+.visual-hero{position:relative;width:100%;line-height:0;background:#050505;overflow:hidden}
+.visual-hero-image{display:block;width:100%;height:auto;aspect-ratio:1774/887;object-fit:contain}
+.visual-logo{position:absolute;left:3.7%;top:1.3%;width:17.5%;height:9.8%;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.visual-logo img{width:100%;height:100%;object-fit:contain}
+.visual-nav{position:absolute;left:25.5%;top:2.2%;width:39%;height:5.2%;display:flex;align-items:center;justify-content:space-between;gap:1%;line-height:1}
+.visual-nav a{font-size:clamp(7px,.92vw,16px);color:#fff;text-decoration:none;white-space:nowrap}
+.visual-nav a:hover{color:#f6bd4d}
+.visual-book{position:absolute;left:64.2%;top:1.6%;width:13.1%;height:5.7%}
+.visual-whatsapp{position:absolute;left:78.3%;top:1.6%;width:9.5%;height:5.7%}
+.visual-language{position:absolute;left:89.1%;top:1.5%;width:7.2%;height:5.7%;opacity:0.02;cursor:pointer}
+.visual-hero a:focus-visible,.visual-language:focus-visible{outline:2px solid #f3b642;outline-offset:2px}
+@media(max-width:650px){
+ .visual-hero-image{width:100%;height:auto;object-fit:contain}
+ .visual-nav{display:none}
+ .visual-logo{left:3%;top:1%;width:20%;height:10%}
+ .visual-book{left:64%;width:13%;top:1%;height:6%}
+ .visual-whatsapp{left:78%;width:10%;top:1%;height:6%}
+ .visual-language{left:89%;width:8%;top:1%;height:6%}
 }
