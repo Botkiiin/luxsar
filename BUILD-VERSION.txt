@@ -1,20 +1,17 @@
-LUXAR WEBSITE — WINDOW TINTING PRICE CATALOGUE UPDATE
+LUXAR — COMPLETE WEBSITE BUILD
 Build date: 2026-11-04
-This build includes a dedicated responsive window-tinting price catalogue with 9 vehicle/number-of-window options transcribed from the user's Tint Store screenshots:
-Hatchback (3 fixed windows) from €170
-Hatchback (5 windows) from €200
-Coupe (3 fixed windows) from €240
-Sedan (5 windows) from €240
-Station wagon (5 windows) from €240
-MPV (7 windows) from €250
-Station wagon (7 windows) from €260
-SUV (7 windows) from €260
-Bus (5 fixed windows) from €300
-The price catalogue uses the LUXAR black-and-gold visual style and is responsive on desktop and mobile.
-Languages: English, Russian, Ukrainian, Dutch.
+This archive combines the approved site files and requested corrections.
 
+Included:
+- Existing LUXAR header logo asset retained unchanged (assets/luxar-logo.jpg).
+- The same original logo asset is overlaid in the upper-right showroom area of the hero image; no replacement logo artwork was created.
+- Updated full price list, including all nine window-tint vehicle/price options from the supplied Tint Store screenshots.
+- Body polishing 1-step and 2-step price matrix, including corrected €600 value.
+- Wax €130; ceramic coating €180/€220/€300; interior cleaning from €200; headlight restoration from €200.
+- Six actual Instagram Reel embed URLs supplied by the user, displayed horizontally with three cards visible on desktop and side scrolling.
+- Language selector with flags and names for English, Russian, Ukrainian and Dutch.
+- Existing before/after and work photos retained.
+- HTML/CSS/JS website, not a screenshot.
 
-Update 2026-11-04 — Language selector and Instagram Reels
-- Language selector displays flags and full language names for EN/RU/UA/NL.
-- Instagram section uses six real Instagram Reel embed URLs, not generic numbered placeholder tiles.
-- Reels are arranged horizontally: 3 visible on desktop, 2 on tablet, swipe/scroll on mobile.
+Important:
+Instagram controls the availability of embedded Reels. If a Reel is private, removed, age-restricted, or Instagram blocks embedding, it may show an unavailable state; the View on Instagram link remains available.

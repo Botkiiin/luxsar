@@ -47,15 +47,16 @@
 @media(max-width:760px){.tint-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.tint-card{grid-column:auto}}
 @media(max-width:480px){.tint-grid{grid-template-columns:1fr}.tint-item{padding:13px}}
 
-/* Clear language selector with visible flag for every language */
-.header-actions #languageSelect{min-width:142px;max-width:170px;padding:11px 30px 11px 12px;border:1px solid rgba(218,174,99,.72);border-radius:7px;background:#10100f;color:#f6f0e5;font:600 13px 'DM Sans',sans-serif;cursor:pointer;accent-color:#d9ad66}
-.header-actions #languageSelect option{background:#111;color:#f6f0e5;padding:10px}
-/* Actual Instagram embeds in a horizontal carousel */
-.instagram-track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 32px)/3);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;align-items:start;padding:2px 1px 14px}
+/* Final refinements: original logo overlay, language flags and Instagram carousel */
+.hero-wall-logo{position:absolute;z-index:2;top:7.5%;right:7.5%;width:clamp(125px,15vw,205px);height:auto;object-fit:contain;mix-blend-mode:screen;opacity:.98;pointer-events:none}
+.header-actions #languageSelect{min-width:136px;padding:10px 28px 10px 11px;border:1px solid rgba(218,174,99,.72);border-radius:7px;background:#10100f;color:#f6f0e5;font:600 13px 'DM Sans',sans-serif;cursor:pointer}
+.header-actions #languageSelect option{background:#111;color:#f6f0e5}
+.instagram-reel-row{align-items:center}
+.instagram-track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 32px)/3);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;flex:1;align-items:start;padding:2px 1px 14px}
 .instagram-track::-webkit-scrollbar{display:none}
-.instagram-reel{min-width:0;scroll-snap-align:start;border:1px solid rgba(211,164,82,.3);border-radius:12px;overflow:hidden;background:#0c0c0c}
-.instagram-reel iframe{display:block;width:100%;height:510px;border:0;background:#0c0c0c}
-.reel-open{display:block;padding:11px 14px;color:#e9b866;text-decoration:none;font-size:12px;border-top:1px solid rgba(255,255,255,.08)}
+.instagram-reel{min-width:0;scroll-snap-align:start;border:1px solid rgba(211,164,82,.34);border-radius:12px;overflow:hidden;background:#0c0c0c}
+.instagram-reel iframe{display:block;width:100%;height:470px;border:0;background:#0c0c0c}
+.reel-open{display:block;padding:10px 12px;color:#e9b866;text-decoration:none;font-size:12px;border-top:1px solid rgba(255,255,255,.08)}
 .reel-open:hover{color:#fff}
-@media(max-width:900px){.instagram-track{grid-auto-columns:calc((100% - 16px)/2)}.instagram-reel iframe{height:500px}}
-@media(max-width:600px){.header-actions #languageSelect{min-width:110px;padding:9px 22px 9px 8px;font-size:11px}.instagram-track{grid-auto-columns:82%;gap:12px}.instagram-reel iframe{height:510px}}
+@media(max-width:900px){.hero-wall-logo{right:5%;top:7%;width:145px}.instagram-track{grid-auto-columns:calc((100% - 16px)/2)}.instagram-reel iframe{height:470px}}
+@media(max-width:600px){.hero-wall-logo{right:5%;top:5%;width:105px}.header-actions #languageSelect{min-width:100px;padding:8px 20px 8px 7px;font-size:11px}.instagram-track{grid-auto-columns:82%;gap:12px}.instagram-reel iframe{height:490px}}
