@@ -1,19 +1,18 @@
-# LUXAR Premium Auto Detailing
+# LUXAR Premium Auto Detailing — GitHub build
 
-## Website files
-- `index.html` — main homepage. The price list is NOT displayed on the homepage.
-- `prices.html` — separate price list page, opened by clicking **Prices** in the navigation.
-- `styles.css` — shared premium black/gold styling.
-- `script.js` — four-language translations and interactive controls.
-- `assets/` — original LUXAR logo and showroom/work photographs.
+This archive is based on the latest ZIP supplied by the site owner (the current GitHub version).
 
-## Updates in this build
-- Prices moved to a dedicated `prices.html` page.
-- Window tinting price catalogue uses individual vehicle silhouette illustrations for all nine vehicle/price options.
-- The six supplied Instagram Reel URLs are embedded in the homepage video carousel, with links to open each Reel on Instagram.
-- Language picker uses drawn flag icons (UK, Russia, Ukraine, Netherlands), not emoji glyphs, for consistent display on Windows.
-- The original logo image file `assets/luxar-logo.jpg` is retained and used for the header and the logo overlay on the hero showroom wall. The logo artwork itself is not redrawn or replaced.
-- Four languages: English, Russian, Ukrainian, Dutch.
+## Pages
+- `index.html` — main homepage. The price catalogue is not on this page.
+- `prices.html` — separate price list, opened by the Prices navigation item.
+
+## Confirmed changes in this build
+- Prices navigation opens `prices.html`; the quote link on the price page leads to the homepage appointment form.
+- Window tint catalogue shows vehicle silhouettes (not square placeholders) for the nine supplied body/price options.
+- Homepage retains all six supplied Instagram Reel embeds and direct links, arranged as a horizontal carousel with three cards visible on desktop.
+- Language selector shows UK, Russian, Ukrainian and Netherlands flags and supports EN/RU/UA/NL.
+- The original logo file `assets/luxar-logo.jpg` remains unchanged for the header/footer. The same original logo artwork is used on the showroom wall through `assets/luxar-logo-wall.png`, which only removes the black image background for clean placement; the logo itself is not redrawn.
+- Existing photos, homepage sections, and black/gold design are retained.
 
 ## Publish
-Upload all files and folders from this ZIP to the root of the `Botkiiin/luxsar` GitHub repository, replacing the previous website files. Keep the `assets` folder structure unchanged.
+Upload all files and folders from this archive into the root of the `Botkiiin/luxsar` repository, replacing the previous files. Keep the `assets` folder structure.

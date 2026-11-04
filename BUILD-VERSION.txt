@@ -1,16 +1,5 @@
-LUXAR WEBSITE — REVISED PAGE STRUCTURE
+LUXAR — CURRENT GITHUB BASE + TARGETED FIXES
 Build date: 2026-11-04
-Build: separate prices page + preserved homepage Reels + drawn language flags + original logo overlay
-
-Homepage:
-- Price list removed from homepage.
-- Navigation Prices opens prices.html.
-- Instagram section remains on homepage with six supplied Reel embeds.
-- Original LUXAR logo file remains unchanged and is overlaid on the upper-right showroom wall.
-
-Prices page:
-- Dedicated prices.html page.
-- Window tint price catalogue includes 9 vehicle-specific vector silhouettes.
-- Existing paint polishing, wax, ceramic, interior cleaning and PPF/headlight price details retained.
-
-Languages: EN / RU / UK / NL with custom vector flags.
+Base: user-uploaded latest GitHub ZIP
+Changes: standalone prices page; car silhouette tint cards; six Instagram Reel embeds and horizontal carousel; EN/RU/UK/NL flag selector; original logo artwork cleanly placed on showroom wall.
+Original header/footer logo asset retained unchanged.
