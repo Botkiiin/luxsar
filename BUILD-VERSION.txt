@@ -1,0 +1,5 @@
+LUXAR FRESH WEBSITE BUILD
+Build date: 2026-11-04
+Freshly rebuilt HTML, CSS and JavaScript. Not based on the old homepage markup.
+Hero: separate generated showroom image, with real HTML navigation, text, buttons and four-language selector.
+Languages: EN, RU, UK, NL.
