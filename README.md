@@ -21,3 +21,6 @@ Do not upload the ZIP file itself into the repository root as a substitute for i
 
 ## Hero photo
 The homepage uses `assets/luxar-hero-wide.jpg`: a wide composition made from the original workshop photo, keeping the full vehicle visible and covering the license plate. The original source photo is also retained in the assets folder.
+
+## Updated homepage hero
+The homepage now uses a full-width, full-bleed showroom hero composition. The original LUXAR Range Rover workshop photo is displayed large on the right with a dark fade behind the headline on the left. The license plate is covered. The image is not used as a flat screenshot; navigation, headings, buttons and sections remain real HTML elements.
