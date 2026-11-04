@@ -16,3 +16,9 @@ This archive is based on the latest ZIP supplied by the site owner (the current 
 
 ## Publish
 Upload all files and folders from this archive into the root of the `Botkiiin/luxsar` repository, replacing the previous files. Keep the `assets` folder structure.
+
+
+## Visual correction build — 2026-11-04
+- The blurred wall patch in the hero photograph is covered by a clean, subtle wall sign. The user's original LUXAR logo artwork is composited directly into the showroom background at the sign position; the previous separate logo overlay was removed so the logo cannot appear below the blurred area.
+- Vehicle silhouettes in the window-tint price catalogue have been redrawn as clean side-profile SVGs with distinct body styles.
+- Price rows and polish cards now use wrapping-safe grid layouts so translated vehicle names and prices cannot collide or overlap.
