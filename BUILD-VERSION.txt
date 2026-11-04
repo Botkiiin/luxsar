@@ -1,5 +1,20 @@
-LUXAR FRESH WEBSITE BUILD
+LUXAR WEBSITE — WINDOW TINTING PRICE CATALOGUE UPDATE
 Build date: 2026-11-04
-Freshly rebuilt HTML, CSS and JavaScript. Not based on the old homepage markup.
-Hero: separate generated showroom image, with real HTML navigation, text, buttons and four-language selector.
-Languages: EN, RU, UK, NL.
+This build includes a dedicated responsive window-tinting price catalogue with 9 vehicle/number-of-window options transcribed from the user's Tint Store screenshots:
+Hatchback (3 fixed windows) from €170
+Hatchback (5 windows) from €200
+Coupe (3 fixed windows) from €240
+Sedan (5 windows) from €240
+Station wagon (5 windows) from €240
+MPV (7 windows) from €250
+Station wagon (7 windows) from €260
+SUV (7 windows) from €260
+Bus (5 fixed windows) from €300
+The price catalogue uses the LUXAR black-and-gold visual style and is responsive on desktop and mobile.
+Languages: English, Russian, Ukrainian, Dutch.
+
+
+Update 2026-11-04 — Language selector and Instagram Reels
+- Language selector displays flags and full language names for EN/RU/UA/NL.
+- Instagram section uses six real Instagram Reel embed URLs, not generic numbered placeholder tiles.
+- Reels are arranged horizontally: 3 visible on desktop, 2 on tablet, swipe/scroll on mobile.
