@@ -1,12 +1,23 @@
-# LUXAR Premium Auto Detailing
+# LUXAR Premium Auto Detailing website
 
-Static website for GitHub Pages. Uses the supplied LUXAR logo and the original Range Rover photo without editing the car image.
+## Languages
+The website defaults to English and includes a language selector for English (EN), Russian (RU), and Ukrainian (UK). Text translations and the WhatsApp appointment message switch with the selected language.
 
-## Publish to GitHub Pages
-Upload the contents of this folder to the root of `Botkiiin/luxsar` and commit to `main`. GitHub Pages should be set to deploy from `main` and `/(root)`.
+## Upload to GitHub Pages
+1. Download and extract this ZIP.
+2. Open your repository: https://github.com/Botkiiin/luxsar
+3. Choose **Add file → Upload files**.
+4. Upload the contents of this folder (including `index.html`, `styles.css`, `script.js`, and the `assets` folder) into the repository root.
+5. Click **Commit changes**.
+6. Wait a few minutes and refresh your GitHub Pages site.
 
-## Instagram Reels
-The page embeds the six public Instagram URLs supplied by the site owner. Instagram may prevent embedding for private or restricted posts; the site links remain visible as Instagram embeds when permitted.
+Do not upload the ZIP file itself into the repository root as a substitute for its contents.
 
-## Booking
-The appointment form opens WhatsApp with a prefilled request. It is not a live booking calendar and does not store submissions.
+## Notes
+- The site is static and compatible with GitHub Pages; no server is required.
+- Appointment requests open WhatsApp with a prefilled message; this is not a live booking system.
+- Instagram embeds require public/embeddable Reels and may be affected by Instagram's own restrictions.
+- Business contact details are in `index.html`.
+
+## Hero photo
+The homepage uses `assets/luxar-hero-wide.jpg`: a wide composition made from the original workshop photo, keeping the full vehicle visible and covering the license plate. The original source photo is also retained in the assets folder.
