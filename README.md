@@ -1,20 +1,24 @@
 # LUXAR Premium Auto Detailing
 
-## Website package
-This ZIP contains the website ready to upload to the root of the GitHub repository `Botkiiin/luxsar`.
+This package contains the responsive LUXAR website for GitHub Pages.
 
-## Approved hero design
-The approved generated LUXAR black-and-gold hero composition is used as the homepage banner. The supplied LUXAR logo is overlaid in the header. The generated artwork includes the luxury showroom, vehicle, hero headline, calls to action and feature highlights.
+## Homepage
+The homepage is built from real HTML and CSS elements — it is NOT a screenshot of the approved mockup.
+- Navigation links are live HTML links.
+- The headline, supporting text, benefit items and appointment/WhatsApp buttons are editable webpage elements.
+- The language selector is a working HTML control.
+- The hero uses a separate generated showroom/car photograph as a background image.
+- The real supplied LUXAR logo is used in the header.
 
 ## Languages
-The language selector supports English (default), Russian, Ukrainian and Dutch. The rest of the website content and WhatsApp appointment request are translated when a language is selected. The generated hero artwork itself is a fixed English visual.
+English is the default. Russian, Ukrainian and Dutch are available in the language selector. The appointment request text sent to WhatsApp also follows the selected language.
 
-## Upload
-1. Extract this ZIP.
-2. Open https://github.com/Botkiiin/luxsar
-3. Choose Add file → Upload files.
-4. Upload all extracted files and folders into the repository root, replacing files with the same names.
-5. Commit changes and wait for GitHub Pages to publish.
+## Upload to GitHub
+1. Extract this ZIP on your computer.
+2. Open the repository `Botkiiin/luxsar`.
+3. Select **Add file → Upload files**.
+4. Upload all files and folders from the extracted ZIP into the repository root, replacing files with the same names.
+5. Select **Commit changes** and wait for GitHub Pages to publish.
 
-## Booking
-The appointment form opens WhatsApp with a prefilled request. It is not a live booking calendar or automatic reservation system.
+## Appointment form
+The form opens WhatsApp with a prefilled message. It is a request form, not a live booking calendar or automatic reservation system.
