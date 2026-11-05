@@ -1,1 +1,3 @@
-LUXAR build 2026-11-05: 3D interactive tint configurator with drag rotation, wheel/pinch zoom, body-type-specific procedural vehicle models and window selection; detailed 2-step polishing copy in EN/RU/UK/NL.
+LUXAR build: 2026-11-05
+Update: rebuilt the window-tint viewer vehicle geometry with a smooth lofted body shell, curved cabin silhouette, individual side-glass panels, windshield, detailed wheels and per-pane highlighting.
+Note: the viewer uses Three.js r128 from its existing CDN dependency. This iteration uses custom procedural 3D geometry, not a photorealistic manufacturer GLB model. Verify the live rendering in a browser with internet access before publishing.

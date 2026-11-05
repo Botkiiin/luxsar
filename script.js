@@ -113,77 +113,130 @@ if(form){
   const spec=vehicleSpecs[type]||vehicleSpecs.suv;
   if(carRoot){scene.remove(carRoot);}
   carRoot=new THREE.Group(); scene.add(carRoot);
-  const bodyMat=material(0x171b20,.28,.78),trim=material(0x080a0c,.42,.45),chrome=material(0x9aa3aa,.24,.85);
-  const glassOff=material(0x182a36,.18,.62),glassOn=new THREE.MeshStandardMaterial({color:gold,emissive:0x6c4310,emissiveIntensity:.45,metalness:.35,roughness:.22,transparent:true,opacity:.92}),glassSelected=new THREE.MeshStandardMaterial({color:0xffd27a,emissive:0xe39a2e,emissiveIntensity:1.1,metalness:.25,roughness:.18,transparent:true,opacity:.98});
+  const bodyMat=new THREE.MeshPhysicalMaterial({color:0x171b20,metalness:.78,roughness:.24,clearcoat:1,clearcoatRoughness:.12});
+  const trim=new THREE.MeshStandardMaterial({color:0x080a0c,roughness:.48,metalness:.35});
+  const chrome=new THREE.MeshStandardMaterial({color:0xaab2b8,roughness:.2,metalness:.92});
+  const glassOff=new THREE.MeshPhysicalMaterial({color:0x142b3a,metalness:.55,roughness:.12,clearcoat:1,transparent:true,opacity:.94,side:THREE.DoubleSide});
+  const glassOn=new THREE.MeshPhysicalMaterial({color:gold,emissive:0x5b3b10,emissiveIntensity:.38,metalness:.4,roughness:.16,transparent:true,opacity:.96,side:THREE.DoubleSide});
+  const glassSelected=new THREE.MeshPhysicalMaterial({color:0xffd27a,emissive:0xe39a2e,emissiveIntensity:1.05,metalness:.25,roughness:.12,transparent:true,opacity:1,side:THREE.DoubleSide});
   paneOff=glassOff; paneIncluded=glassOn; paneSelected=glassSelected;
-  const wheelMat=material(0x08090b,.82,.1),rimMat=material(0x777f85,.25,.85);
-  const L=spec.length,W=spec.width,H=spec.height,baseY=.66;
-  box(carRoot,L,.62,W,0,baseY,0,bodyMat);
-  box(carRoot,L*.82,.16,W*1.01,0,baseY-.31,0,trim);
-  // Hood and trunk are separate planes to create a recognizable silhouette.
-  box(carRoot,L*.27,.22,W*.94,L*.34,baseY+.29,0,bodyMat);
-  box(carRoot,L*.20,.20,W*.93,-L*.36,baseY+.27,0,bodyMat);
-  const cabin=new THREE.Group(); carRoot.add(cabin);
-  const frontX=L*.23,rearX=-L*.28,roofY=H*.72;
+  const wheelMat=new THREE.MeshStandardMaterial({color:0x090a0c,roughness:.86});
+  const rubber=new THREE.MeshStandardMaterial({color:0x030405,roughness:.96});
+  const rimMat=new THREE.MeshStandardMaterial({color:0x9ca4aa,roughness:.22,metalness:.92});
+  const L=spec.length,W=spec.width,H=spec.height,baseY=.48;
+  const cabinTop=spec.roof||H*.82;
+  const cabinRear=type==='coupe'?-L*.22:-L*.30;
+  const cabinFront=type==='minibus'?L*.30:L*.25;
+  const wheelBase=L*(type==='minibus'?.34:.32);
+  // Smooth lofted body shell: a continuous, rounded automotive body rather than boxes.
+  const sections=48,around=32,verts=[],indices=[];
+  for(let i=0;i<=sections;i++){
+   const t=i/sections, x=(t-.5)*L;
+   const taper=.78+.22*Math.sin(Math.PI*t);
+   const width=(W*.49)*taper*(.96+.04*Math.sin(Math.PI*2*t));
+   const frontLift=Math.max(0,(t-.78)/.22),rearLift=Math.max(0,(.22-t)/.22);
+   const lower=baseY+.02;
+   const upper=baseY+.48 + .06*Math.sin(Math.PI*t) - .07*frontLift - .02*rearLift;
+   for(let j=0;j<=around;j++){
+    const a=(j/around)*Math.PI*2;
+    const sn=Math.sin(a),cs=Math.cos(a);
+    const y=lower+(upper-lower)*(sn*.5+.5);
+    const z=width*cs;
+    verts.push(x,y,z);
+   }
+  }
+  for(let i=0;i<sections;i++)for(let j=0;j<around;j++){
+   const a=i*(around+1)+j,b=a+around+1;
+   indices.push(a,b,a+1,b,b+1,a+1);
+  }
+  const bodyGeo=new THREE.BufferGeometry();bodyGeo.setAttribute('position',new THREE.Float32BufferAttribute(verts,3));bodyGeo.setIndex(indices);bodyGeo.computeVertexNormals();
+  const body=new THREE.Mesh(bodyGeo,bodyMat);carRoot.add(body);
+  // Lower rocker panels and front/rear bumpers follow the body width.
+  const sill=new THREE.Mesh(new THREE.BoxGeometry(L*.72,.12,W*.94),trim);sill.position.set(0,.53,0);carRoot.add(sill);
+  const frontBumper=new THREE.Mesh(new THREE.BoxGeometry(.16,.18,W*.88),trim);frontBumper.position.set(L*.485,.58,0);carRoot.add(frontBumper);
+  const rearBumper=new THREE.Mesh(new THREE.BoxGeometry(.14,.17,W*.88),trim);rearBumper.position.set(-L*.485,.58,0);carRoot.add(rearBumper);
+  // Curved cabin silhouette, with roof height and proportions adjusted by body type.
+  let roofStart=cabinRear+L*.13, roofEnd=cabinFront-L*.12;
+  if(type==='coupe'){roofStart=cabinRear+L*.20;roofEnd=cabinFront-L*.17;}
+  if(type==='mpv'||type==='minibus'){roofStart=cabinRear+L*.06;roofEnd=cabinFront-L*.07;}
   const cabinShape=new THREE.Shape();
-  cabinShape.moveTo(rearX,baseY+.30);
-  cabinShape.lineTo(rearX+L*.08,roofY-.10);
-  cabinShape.quadraticCurveTo(rearX+L*.13,roofY,rearX+L*.23,roofY);
-  cabinShape.lineTo(frontX-L*.08,roofY);
-  cabinShape.quadraticCurveTo(frontX,roofY-.02,frontX+L*.08,baseY+.30);
+  cabinShape.moveTo(cabinRear,baseY+.40);
+  cabinShape.quadraticCurveTo(cabinRear+L*.055,cabinTop-.10,roofStart,cabinTop);
+  cabinShape.quadraticCurveTo((roofStart+roofEnd)/2,cabinTop+.025,roofEnd,cabinTop);
+  cabinShape.quadraticCurveTo(cabinFront-L*.04,cabinTop-.03,cabinFront,baseY+.40);
   cabinShape.closePath();
-  const geom=new THREE.ExtrudeGeometry(cabinShape,{depth:W*.82,bevelEnabled:true,bevelSegments:2,steps:1,bevelSize:.035,bevelThickness:.035});
-  geom.translate(0,0,-W*.41);
-  const cabinMesh=new THREE.Mesh(geom,bodyMat); cabin.add(cabinMesh);
-  // Side glass panels on both sides; selected package areas glow gold.
-  const count=Math.max(3,Math.min(7,n));
-  const sideWindowCount=type==='coupe'?2:(type==='hatchback'?3:(type==='sedan'||type==='wagon'?4:5));
-  const startX=rearX+L*.10, span=(frontX-rearX-L*.20)/sideWindowCount;
-  const glassMeshes=[];
-  for(let side of [-1,1]){
-   for(let i=0;i<sideWindowCount;i++){
-    const x=startX+i*span+span/2;
-    const ww=span*.84;
-    const mesh=box(carRoot,ww,roofY-(baseY+.43),.025,x,(roofY+baseY+.43)/2,side*W*.415,glassOff);
-    mesh.rotation.z=(i===0?-.10:.02);
-    glassMeshes.push(mesh);
-    // slim chrome window surround
-    const top=box(carRoot,ww,.025,.035,x,roofY-.02,side*W*.422,chrome);
+  const cabinGeo=new THREE.ExtrudeGeometry(cabinShape,{depth:W*.72,bevelEnabled:true,bevelSegments:5,steps:1,bevelSize:.055,bevelThickness:.055,curveSegments:16});
+  cabinGeo.translate(0,0,-W*.36);
+  const cabinMesh=new THREE.Mesh(cabinGeo,bodyMat);carRoot.add(cabinMesh);
+  // Roof glass / panoramic roof detail.
+  const roofPanel=new THREE.Mesh(new THREE.BoxGeometry((roofEnd-roofStart)*.72,.018,W*.48),new THREE.MeshPhysicalMaterial({color:0x101923,metalness:.65,roughness:.16}));
+  roofPanel.position.set((roofStart+roofEnd)/2,cabinTop+.055,0);carRoot.add(roofPanel);
+  // Separate, individually selectable side panes on both sides.
+  const paneGroups=Array.from({length:7},()=>[]);
+  const sideSections=type==='coupe'?2:(type==='hatchback'?3:(type==='sedan'||type==='wagon'?3:3));
+  const sideZ=W*.365;
+  function paneShape(points,side,groupIndex){
+   const shape=new THREE.Shape();shape.moveTo(points[0][0],points[0][1]);
+   for(let k=1;k<points.length;k++)shape.lineTo(points[k][0],points[k][1]);shape.closePath();
+   const geo=new THREE.ShapeGeometry(shape,12);
+   const mesh=new THREE.Mesh(geo,glassOff);mesh.position.z=side*sideZ;mesh.material.side=THREE.DoubleSide;carRoot.add(mesh);paneGroups[groupIndex].push(mesh);
+   // narrow chrome trim around each glass pane
+   const pts=points.map(([x,y])=>new THREE.Vector3(x,y,side*(sideZ+.008)));
+   const lineGeo=new THREE.BufferGeometry().setFromPoints([...pts,pts[0]]);
+   carRoot.add(new THREE.Line(lineGeo,new THREE.LineBasicMaterial({color:0x9ca4aa,transparent:true,opacity:.72})));
+   return mesh;
+  }
+  const yBottom=baseY+.57,yTop=cabinTop-.10;
+  const rearX=cabinRear+L*.12,frontX=cabinFront-L*.11;
+  const split1=rearX+(frontX-rearX)*.34,split2=rearX+(frontX-rearX)*.68;
+  for(const side of [-1,1]){
+   // rear quarter / rear door / front door glass
+   paneShape([[rearX,yBottom],[rearX+L*.045,yTop-.12],[split1,yTop-.12],[split1-.025,yBottom+.025]],side,side===1?0:6);
+   paneShape([[split1+.025,yBottom+.025],[split1+.035,yTop-.12],[split2,yTop-.12],[split2-.015,yBottom+.025]],side,side===1?1:5);
+   paneShape([[split2+.02,yBottom+.025],[split2+.03,yTop-.12],[frontX-L*.035,yTop-.12],[frontX,yBottom]],side,side===1?2:4);
+  }
+  // Front windscreen is a true sloped glass panel across the front of the cabin.
+  const windshieldShape=new THREE.Shape();
+  windshieldShape.moveTo(cabinFront-L*.055,baseY+.56);
+  windshieldShape.lineTo(cabinFront-L*.13,cabinTop-.10);
+  windshieldShape.lineTo(cabinFront-L*.13, cabinTop-.13);
+  windshieldShape.lineTo(cabinFront-L*.035,baseY+.56);windshieldShape.closePath();
+  const windGeo=new THREE.ExtrudeGeometry(windshieldShape,{depth:W*.66,bevelEnabled:false});windGeo.translate(0,0,-W*.33);
+  const wind=new THREE.Mesh(windGeo,glassOff);wind.material=glassOff;carRoot.add(wind);paneGroups[3].push(wind);
+  // Rear screen is grouped with the two rear quarter selections.
+  const rearShape=new THREE.Shape();rearShape.moveTo(cabinRear+L*.035,baseY+.56);rearShape.lineTo(cabinRear+L*.13,cabinTop-.10);rearShape.lineTo(cabinRear+L*.13,cabinTop-.13);rearShape.lineTo(cabinRear-L*.005,baseY+.56);rearShape.closePath();
+  const rearGeo=new THREE.ExtrudeGeometry(rearShape,{depth:W*.64,bevelEnabled:false});rearGeo.translate(0,0,-W*.32);
+  const rearGlass=new THREE.Mesh(rearGeo,glassOff);carRoot.add(rearGlass);paneGroups[0].push(rearGlass);
+  paneGroups[6].push(rearGlass.clone());paneGroups[6][1].position.z=W*.32;carRoot.add(paneGroups[6][1]);
+  // Wheels, detailed alloy rims, brake discs and arches.
+  for(const x of [-wheelBase,wheelBase])for(const side of [-1,1]){
+   const z=side*W*.49;
+   const tire=new THREE.Mesh(new THREE.TorusGeometry(spec.wheel*.78,spec.wheel*.22,16,48),rubber);tire.rotation.y=Math.PI/2;tire.position.set(x,.52,z);carRoot.add(tire);
+   const wheel=new THREE.Mesh(new THREE.CylinderGeometry(spec.wheel*.78,spec.wheel*.78,.20,48),wheelMat);wheel.rotation.x=Math.PI/2;wheel.position.set(x,.52,z);carRoot.add(wheel);
+   const rim=new THREE.Mesh(new THREE.CylinderGeometry(spec.wheel*.54,spec.wheel*.54,.215,40),rimMat);rim.rotation.x=Math.PI/2;rim.position.set(x,.52,z+side*.105);carRoot.add(rim);
+   const hub=new THREE.Mesh(new THREE.CylinderGeometry(.075,.075,.23,24),chrome);hub.rotation.x=Math.PI/2;hub.position.set(x,.52,z+side*.112);carRoot.add(hub);
+   for(let k=0;k<10;k++){
+    const spoke=new THREE.Mesh(new THREE.BoxGeometry(.035,spec.wheel*.78,.018),chrome);spoke.position.set(x,.52,z+side*.12);spoke.rotation.z=k*Math.PI/5;carRoot.add(spoke);
    }
+   const arch=new THREE.Mesh(new THREE.TorusGeometry(spec.wheel*1.04,.045,8,40,Math.PI),trim);arch.rotation.z=Math.PI;arch.position.set(x,.53,side*W*.47);carRoot.add(arch);
   }
-  // Windshield and rear glass.
-  const wind=box(carRoot,.035,.50,W*.72,L*.24,baseY+.73,0,glassOff); wind.rotation.z=-.35; glassMeshes.push(wind);
-  const rear=box(carRoot,.035,.43,W*.70,-L*.27,baseY+.72,0,glassOff); rear.rotation.z=.35; glassMeshes.push(rear);
-  // Wheels and alloy rims.
-  for(const x of [-L*.32,L*.32]){
-   for(const z of [-W*.51,W*.51]){
-    const wheel=new THREE.Mesh(new THREE.CylinderGeometry(spec.wheel,spec.wheel,.22,32),wheelMat);
-    wheel.rotation.x=Math.PI/2; wheel.position.set(x,.48,z); carRoot.add(wheel);
-    const rim=new THREE.Mesh(new THREE.CylinderGeometry(spec.wheel*.55,spec.wheel*.55,.235,24),rimMat);
-    rim.rotation.x=Math.PI/2; rim.position.set(x,.48,z*1.005); carRoot.add(rim);
-    const hub=new THREE.Mesh(new THREE.CylinderGeometry(.055,.055,.245,16),chrome);
-    hub.rotation.x=Math.PI/2; hub.position.set(x,.48,z*1.01); carRoot.add(hub);
-   }
+  // Signature lights, grille, mirrors, door handles and body creases.
+  for(const side of [-1,1]){
+   const head=new THREE.Mesh(new THREE.BoxGeometry(.12,.075,.32),new THREE.MeshPhysicalMaterial({color:0xe8f0f4,emissive:0x6a8799,emissiveIntensity:.35,roughness:.18}));head.position.set(L*.477,.72,side*W*.30);carRoot.add(head);
+   const tail=new THREE.Mesh(new THREE.BoxGeometry(.07,.09,.32),new THREE.MeshStandardMaterial({color:0x8f1717,emissive:0x4b0808,emissiveIntensity:.45}));tail.position.set(-L*.48,.72,side*W*.30);carRoot.add(tail);
+   const mirror=new THREE.Mesh(new THREE.SphereGeometry(.095,16,12),bodyMat);mirror.scale.set(1,.55,1.15);mirror.position.set(L*.19,.99,side*W*.49);carRoot.add(mirror);
+   for(const dx of [L*.04,-L*.15]){const handle=new THREE.Mesh(new THREE.BoxGeometry(.12,.025,.025),chrome);handle.position.set(dx,.78,side*W*.49);carRoot.add(handle);}
   }
-  // Headlights and tail lights.
-  for(let z of [-W*.36,W*.36]){
-   box(carRoot,.10,.12,.28,L*.505,baseY+.10,z,material(0xd7e5ef,.2,.3));
-   box(carRoot,.08,.10,.22,-L*.505,baseY+.10,z,material(0x9b1d18,.3,.2));
-  }
-  // Group matching left/right panes so the list controls the actual 3D glass.
-  paneGroups=[];
-  for(let i=0;i<7;i++){
-   if(i<3) paneGroups.push(i<sideWindowCount?[glassMeshes[i]]:[]);
-   else if(i===3) paneGroups.push([wind]);
-   else {const rightIndex=i-4;paneGroups.push(rightIndex<sideWindowCount?[glassMeshes[sideWindowCount+rightIndex]]:[]);}
-  }
-  carRoot.scale.setScalar(1);
-  carRoot.rotation.y=-.28;
+  const grille=new THREE.Mesh(new THREE.BoxGeometry(.035,.14,W*.27),new THREE.MeshStandardMaterial({color:0x050607,metalness:.45,roughness:.35}));grille.position.set(L*.492,.61,0);carRoot.add(grille);
+  // The visible seven glass zones map directly to the seven controls.
+  window.__luxarPaneGroups=paneGroups;
+  carRoot.rotation.y=-.35;
   updateGlassHighlight();
-  updateGlassList(type,count,Math.min(count,7));
+  updateGlassList(type,Math.max(3,Math.min(7,n)),7);
  }
  function updateGlassHighlight(){
-  paneGroups.forEach((group,i)=>group.forEach(mesh=>{mesh.material=i===selected?paneSelected:(i<included?paneIncluded:paneOff);}));
+  const groups=window.__luxarPaneGroups||paneGroups;
+  groups.forEach((group,i)=>group.forEach(mesh=>{mesh.material=i===selected?paneSelected:(i<included?paneIncluded:paneOff);}));
  }
  function updateGlassList(type,n,sideCount){
   const lang=currentLanguage||'en',names=glassNames[lang]||glassNames.en;
