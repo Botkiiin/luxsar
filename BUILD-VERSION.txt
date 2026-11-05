@@ -1,2 +1,2 @@
-LUXAR website build
-Approved premium hero and vehicle imagery integrated into existing site structure.
+LUXAR build: 2026-11-05 premium3
+Approved hero preserved; individual vehicle profile images; final horizontal tint card layout; stylesheet cache-busted.
