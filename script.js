@@ -101,6 +101,7 @@ if(form){
   minibus:{length:5.45,width:2.05,height:2.25,wheel:0.42,roof:2.10,windows:5}
  };
  let renderer=null,scene=null,camera=null,carRoot=null,raf=0,previous=null,currentType='suv',included=5,selected=0,dragging=false,lastX=0,lastY=0;
+ let paneGroups=[],paneOff=null,paneIncluded=null,paneSelected=null;
  const gold=0xd9a64f;
  function material(color,roughness=.55,metalness=.25){return new THREE.MeshStandardMaterial({color,roughness,metalness});}
  function box(parent,w,h,d,x,y,z,mat,round=false){
@@ -113,7 +114,8 @@ if(form){
   if(carRoot){scene.remove(carRoot);}
   carRoot=new THREE.Group(); scene.add(carRoot);
   const bodyMat=material(0x171b20,.28,.78),trim=material(0x080a0c,.42,.45),chrome=material(0x9aa3aa,.24,.85);
-  const glassOff=material(0x182a36,.18,.62),glassOn=new THREE.MeshStandardMaterial({color:gold,emissive:0x6c4310,emissiveIntensity:.45,metalness:.35,roughness:.22,transparent:true,opacity:.92});
+  const glassOff=material(0x182a36,.18,.62),glassOn=new THREE.MeshStandardMaterial({color:gold,emissive:0x6c4310,emissiveIntensity:.45,metalness:.35,roughness:.22,transparent:true,opacity:.92}),glassSelected=new THREE.MeshStandardMaterial({color:0xffd27a,emissive:0xe39a2e,emissiveIntensity:1.1,metalness:.25,roughness:.18,transparent:true,opacity:.98});
+  paneOff=glassOff; paneIncluded=glassOn; paneSelected=glassSelected;
   const wheelMat=material(0x08090b,.82,.1),rimMat=material(0x777f85,.25,.85);
   const L=spec.length,W=spec.width,H=spec.height,baseY=.66;
   box(carRoot,L,.62,W,0,baseY,0,bodyMat);
@@ -168,16 +170,20 @@ if(form){
    box(carRoot,.10,.12,.28,L*.505,baseY+.10,z,material(0xd7e5ef,.2,.3));
    box(carRoot,.08,.10,.22,-L*.505,baseY+.10,z,material(0x9b1d18,.3,.2));
   }
-  // Highlight a deterministic set of side and rear glass panes in gold.
-  const active=Math.min(count,glassMeshes.length);
-  glassMeshes.forEach((m,i)=>{
-   const paneIndex=i<sideWindowCount*2?(i%sideWindowCount):sideWindowCount+(i-sideWindowCount*2);
-   m.material=paneIndex<active?glassOn:glassOff;
-  });
-  // Selected pane gets a brighter gold emissive rim.
+  // Group matching left/right panes so the list controls the actual 3D glass.
+  paneGroups=[];
+  for(let i=0;i<7;i++){
+   if(i<3) paneGroups.push(i<sideWindowCount?[glassMeshes[i]]:[]);
+   else if(i===3) paneGroups.push([wind]);
+   else {const rightIndex=i-4;paneGroups.push(rightIndex<sideWindowCount?[glassMeshes[sideWindowCount+rightIndex]]:[]);}
+  }
   carRoot.scale.setScalar(1);
   carRoot.rotation.y=-.28;
-  updateGlassList(type,count,active);
+  updateGlassHighlight();
+  updateGlassList(type,count,Math.min(count,7));
+ }
+ function updateGlassHighlight(){
+  paneGroups.forEach((group,i)=>group.forEach(mesh=>{mesh.material=i===selected?paneSelected:(i<included?paneIncluded:paneOff);}));
  }
  function updateGlassList(type,n,sideCount){
   const lang=currentLanguage||'en',names=glassNames[lang]||glassNames.en;
@@ -186,7 +192,7 @@ if(form){
   for(let i=0;i<listCount;i++){
    const btn=document.createElement('button');btn.type='button';btn.className='tint-glass-chip'+(i===selected?' active':'');
    btn.textContent=`${String(i+1).padStart(2,'0')} · ${names[i]}`;
-   btn.addEventListener('click',()=>{selected=i;glassList.querySelectorAll('button').forEach((b,k)=>b.classList.toggle('active',k===i));});
+   btn.addEventListener('click',()=>{selected=i;glassList.querySelectorAll('button').forEach((b,k)=>b.classList.toggle('active',k===i));updateGlassHighlight();});
    glassList.appendChild(btn);
   }
   const idx={en:0,ru:1,uk:2,nl:3}[lang]||0;
@@ -196,7 +202,7 @@ if(form){
   if(renderer||!window.THREE)return;
   const w=Math.max(320,host.clientWidth||700),h=Math.max(240,host.clientHeight||360);
   scene=new THREE.Scene();scene.background=new THREE.Color(0x090a0c);
-  camera=new THREE.PerspectiveCamera(34,w/h,.1,100);camera.position.set(6.6,4.2,7.6);camera.lookAt(0,1,0);
+  camera=new THREE.PerspectiveCamera(34,w/h,.1,100);camera.position.set(6.1,3.25,7.2);camera.lookAt(0,1.05,0);
   renderer=new THREE.WebGLRenderer({antialias:true,alpha:false});
   renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));renderer.setSize(w,h);renderer.shadowMap.enabled=true;
   renderer.outputEncoding=THREE.sRGBEncoding;

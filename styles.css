@@ -403,3 +403,14 @@ body.tint-modal-open{overflow:hidden}
 .tint-glass-chip.active{border-color:#e2b45f;background:rgba(202,151,65,.2);color:#ffdc9a;box-shadow:0 0 15px rgba(202,151,65,.13)}
 .tint-modal-count{margin:8px 0;color:#f1ce8d;font-size:14px}
 @media(max-width:620px){.tint-modal-car{height:300px;min-height:260px}.tint-modal-panel{padding:20px 13px}}
+
+/* Shared polishing explanation sits below both pricing options. */
+.polish-detail-shared{margin:16px 0 0;padding:16px 18px;background:rgba(0,0,0,.24);border:1px solid rgba(218,174,100,.24);border-radius:10px;}
+.polish-detail-shared .polish-detail-step{grid-template-columns:34px minmax(0,1fr);gap:12px;}
+.polish-detail-shared .polish-detail-step b{font-size:13px;}
+.polish-detail-shared .polish-detail-step p,.polish-detail-shared .polish-caution{font-size:12px;line-height:1.6;}
+@media(max-width:560px){.polish-detail-shared{padding:12px}.polish-detail-shared .polish-detail-step p,.polish-detail-shared .polish-caution{font-size:11px}}
+
+/* Keep both polishing options equal; shared process explanation spans the full card. */
+.polish-columns{align-items:stretch}
+.polish-detail-shared{width:100%;box-sizing:border-box}
