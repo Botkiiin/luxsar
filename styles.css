@@ -360,3 +360,46 @@
   .tint-item{grid-template-rows:125px auto !important}
   .tint-item .car-mark{height:125px !important}
 }
+
+/* Two-step polishing explanation */
+.polish-detail{display:grid;gap:12px;margin:14px 0 16px;padding:13px;border:1px solid rgba(218,174,100,.24);border-radius:9px;background:rgba(0,0,0,.18)}
+.polish-detail-step{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;align-items:start}
+.polish-detail-step>span{display:grid;place-items:center;width:27px;height:27px;border:1px solid rgba(226,184,111,.55);border-radius:50%;color:#edc77f;font-size:11px;font-weight:700}
+.polish-detail-step b{display:block;color:#f0cb86;font-size:12px;line-height:1.35;margin:1px 0 4px}
+.polish-detail-step p,.polish-caution{font-size:11px;line-height:1.5;color:#c3c0ba;margin:0}
+.polish-caution{padding-top:10px;border-top:1px solid rgba(255,255,255,.1);color:#aaa69e}
+/* Clickable tint cards and large vehicle/window diagram */
+.tint-item{cursor:pointer;text-align:left;color:inherit;font:inherit}
+.tint-item:focus-visible{outline:2px solid #e8bd70;outline-offset:3px}
+.tint-modal[hidden]{display:none}
+.tint-modal{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:22px}
+.tint-modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(7px)}
+.tint-modal-panel{position:relative;z-index:1;width:min(850px,96vw);max-height:92vh;overflow:auto;padding:28px;border:1px solid rgba(224,180,105,.5);border-radius:17px;background:linear-gradient(145deg,#20201e,#0c0c0c);box-shadow:0 25px 90px rgba(0,0,0,.65)}
+.tint-modal-panel h2{font-family:Georgia,serif;font-size:clamp(24px,4vw,34px);color:#e8c17c;margin:4px 0 10px}
+.tint-modal-intro{color:#d8d4cd;font-size:14px;line-height:1.5}
+.tint-modal-x{position:absolute;right:16px;top:12px;width:38px;height:38px;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:#171717;color:#f2d08f;font-size:27px;cursor:pointer}
+.tint-modal-car{margin:20px 0 12px;padding:14px;border:1px solid rgba(255,255,255,.1);border-radius:12px;background:radial-gradient(ellipse at 50% 80%,rgba(207,158,77,.12),transparent 65%),#080808}
+.tint-modal-car svg{display:block;width:100%;height:auto;max-height:330px}
+.tint-modal-count{color:#f1ce8d;font-weight:700;font-size:15px;margin:10px 0}
+.tint-modal-note{color:#9f9b93;font-size:11px;line-height:1.5}
+.tint-modal-close{margin-top:8px}
+@media(max-width:620px){
+ .polish-detail{padding:10px}
+ .tint-modal{padding:10px}
+ .tint-modal-panel{padding:22px 15px}
+}
+
+body.tint-modal-open{overflow:hidden}
+.tint-modal-panel{overscroll-behavior:contain}
+
+/* 3D tint configurator viewer */
+.tint-viewer-wrap{position:relative;margin:18px 0 12px;border:1px solid rgba(218,174,100,.25);border-radius:12px;overflow:hidden;background:#080a0c}
+.tint-modal-car{height:clamp(290px,48vh,440px);min-height:290px;margin:0;padding:0;border:0;border-radius:0;background:radial-gradient(ellipse at 50% 75%,rgba(207,158,77,.13),transparent 65%),#080a0c;touch-action:pan-y}
+.tint-modal-car canvas{display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+.tint-modal-car canvas:active{cursor:grabbing}
+.tint-viewer-hint{padding:9px 12px;text-align:center;color:#d8bd8a;font-size:11px;letter-spacing:.03em;border-top:1px solid rgba(255,255,255,.08);background:#101010}
+.tint-glass-list{display:flex;gap:8px;max-height:112px;overflow:auto;padding:8px 2px 12px;scrollbar-color:#9b773e #171717;flex-wrap:nowrap}
+.tint-glass-chip{flex:0 0 auto;max-width:220px;padding:10px 13px;border:1px solid rgba(255,255,255,.16);border-radius:8px;background:#141414;color:#ddd;font:inherit;font-size:12px;cursor:pointer;white-space:normal}
+.tint-glass-chip.active{border-color:#e2b45f;background:rgba(202,151,65,.2);color:#ffdc9a;box-shadow:0 0 15px rgba(202,151,65,.13)}
+.tint-modal-count{margin:8px 0;color:#f1ce8d;font-size:14px}
+@media(max-width:620px){.tint-modal-car{height:300px;min-height:260px}.tint-modal-panel{padding:20px 13px}}

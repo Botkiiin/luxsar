@@ -1,2 +1,1 @@
-LUXAR build: 2026-11-05 premium3
-Approved hero preserved; individual vehicle profile images; final horizontal tint card layout; stylesheet cache-busted.
+LUXAR build 2026-11-05: 3D interactive tint configurator with drag rotation, wheel/pinch zoom, body-type-specific procedural vehicle models and window selection; detailed 2-step polishing copy in EN/RU/UK/NL.

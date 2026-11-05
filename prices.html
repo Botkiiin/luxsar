@@ -4,7 +4,7 @@
 <title>LUXAR | Prices</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261105-premium3"></head><body>
+<link rel="stylesheet" href="styles.css?v=20261105-3dviewer"></head><body>
 <header class="header">
  <a class="brand" href="index.html#home"><img src="assets/luxar-logo.jpg" alt="LUXAR Premium Auto Detailing"></a>
  <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
@@ -41,6 +41,11 @@
      <div class="price-line"><span data-i18n="minibus">Minibus</span><strong>€450</strong></div>
     </div>
     <div class="polish-step featured-step"><h4 data-i18n="twoStep">2-step polishing</h4><p class="step-note" data-i18n="twoStepNote">Deeper correction and a refined finish</p>
+     <div class="polish-detail">
+      <div class="polish-detail-step"><span>01</span><div><b data-i18n="twoStepStage1">Stage 1 — Cutting correction</b><p data-i18n="twoStepStage1Text">A cutting compound and suitable pad level or reduce deeper swirl marks, oxidation and visible paint defects where the clear coat safely allows it.</p></div></div>
+      <div class="polish-detail-step"><span>02</span><div><b data-i18n="twoStepStage2">Stage 2 — Fine finishing</b><p data-i18n="twoStepStage2Text">A finer polish and soft finishing pad refine the surface, remove haze or micro-marring left by the first stage and bring out a clearer, deeper gloss.</p></div></div>
+      <p class="polish-caution" data-i18n="twoStepCaution">Deep scratches may remain if removing them would compromise the clear coat. We inspect the paint and, where appropriate, measure its thickness before correction.</p>
+     </div>
      <div class="price-line"><span data-i18n="hatchback">Hatchback</span><strong>€500</strong></div>
      <div class="price-line"><span data-i18n="sedan">Sedan</span><strong>€600</strong></div>
      <div class="price-line"><span data-i18n="crossover">Crossover</span><strong>€700</strong></div>
@@ -53,15 +58,15 @@
     <div class="price-card-head"><span class="price-icon">◈</span><div><p class="eyebrow" data-i18n="tintCategory">WINDOW TINTING</p><h3 data-i18n="tintTitle">Window tinting</h3></div></div>
     <p class="tint-intro" data-i18n="tintNote">Choose your vehicle type. Prices are starting prices.</p>
     <div class="tint-grid">
-     <div class="tint-item"><span class="car-mark"><img src="assets/vehicle-hatchback.jpg" alt="hatchback vehicle"></span><div><b data-i18n="hatchback">Hatchback</b><small data-i18n="tint3">3 fixed windows</small></div><strong><span data-i18n="from">from</span> €170</strong></div>
-     <div class="tint-item"><span class="car-mark"><img src="assets/vehicle-hatchback-plus.jpg" alt="hatchback plus vehicle"></span><div><b data-i18n="hatchback">Hatchback</b><small data-i18n="tint5">5 windows</small></div><strong><span data-i18n="from">from</span> €200</strong></div>
-     <div class="tint-item"><span class="car-mark"><img src="assets/vehicle-coupe.jpg" alt="coupe vehicle"></span><div><b data-i18n="coupe">Coupe</b><small data-i18n="tint3">3 fixed windows</small></div><strong><span data-i18n="from">from</span> €240</strong></div>
-     <div class="tint-item"><span class="car-mark"><img src="assets/vehicle-sedan.jpg" alt="sedan vehicle"></span><div><b data-i18n="sedan">Sedan</b><small data-i18n="tint5">5 windows</small></div><strong><span data-i18n="from">from</span> €240</strong></div>
-     <div class="tint-item"><span class="car-mark"><img src="assets/vehicle-station-wagon.jpg" alt="station wagon vehicle"></span><div><b data-i18n="stationWagon">Station wagon</b><small data-i18n="tint5">5 windows</small></div><strong><span data-i18n="from">from</span> €240</strong></div>
-     <div class="tint-item"><span class="car-mark"><img src="assets/vehicle-mpv.jpg" alt="mpv vehicle"></span><div><b data-i18n="mpv">MPV</b><small data-i18n="tint7">7 windows</small></div><strong><span data-i18n="from">from</span> €250</strong></div>
-     <div class="tint-item"><span class="car-mark"><img src="assets/vehicle-suv.jpg" alt="suv vehicle"></span><div><b data-i18n="stationWagon">Station wagon</b><small data-i18n="tint7">7 windows</small></div><strong><span data-i18n="from">from</span> €260</strong></div>
-     <div class="tint-item"><span class="car-mark"><img src="assets/vehicle-large-suv.jpg" alt="large suv vehicle"></span><div><b data-i18n="suv">SUV</b><small data-i18n="tint7">7 windows</small></div><strong><span data-i18n="from">from</span> €260</strong></div>
-     <div class="tint-item"><span class="car-mark"><img src="assets/vehicle-minibus.jpg" alt="minibus vehicle"></span><div><b data-i18n="bus">Bus</b><small data-i18n="tint5fixed">5 fixed windows</small></div><strong><span data-i18n="from">from</span> €300</strong></div>
+     <div class="tint-item" role="button" tabindex="0" aria-haspopup="dialog" data-body="hatchback" data-windows="3"><span class="car-mark"><img src="assets/vehicle-hatchback.jpg" alt="hatchback vehicle"></span><div><b data-i18n="hatchback">Hatchback</b><small data-i18n="tint3">3 fixed windows</small></div><strong><span data-i18n="from">from</span> €170</strong></div>
+     <div class="tint-item" role="button" tabindex="0" aria-haspopup="dialog" data-body="hatchback" data-windows="5"><span class="car-mark"><img src="assets/vehicle-hatchback-plus.jpg" alt="hatchback plus vehicle"></span><div><b data-i18n="hatchback">Hatchback</b><small data-i18n="tint5">5 windows</small></div><strong><span data-i18n="from">from</span> €200</strong></div>
+     <div class="tint-item" role="button" tabindex="0" aria-haspopup="dialog" data-body="coupe" data-windows="3"><span class="car-mark"><img src="assets/vehicle-coupe.jpg" alt="coupe vehicle"></span><div><b data-i18n="coupe">Coupe</b><small data-i18n="tint3">3 fixed windows</small></div><strong><span data-i18n="from">from</span> €240</strong></div>
+     <div class="tint-item" role="button" tabindex="0" aria-haspopup="dialog" data-body="sedan" data-windows="5"><span class="car-mark"><img src="assets/vehicle-sedan.jpg" alt="sedan vehicle"></span><div><b data-i18n="sedan">Sedan</b><small data-i18n="tint5">5 windows</small></div><strong><span data-i18n="from">from</span> €240</strong></div>
+     <div class="tint-item" role="button" tabindex="0" aria-haspopup="dialog" data-body="wagon" data-windows="5"><span class="car-mark"><img src="assets/vehicle-station-wagon.jpg" alt="station wagon vehicle"></span><div><b data-i18n="stationWagon">Station wagon</b><small data-i18n="tint5">5 windows</small></div><strong><span data-i18n="from">from</span> €240</strong></div>
+     <div class="tint-item" role="button" tabindex="0" aria-haspopup="dialog" data-body="mpv" data-windows="7"><span class="car-mark"><img src="assets/vehicle-mpv.jpg" alt="mpv vehicle"></span><div><b data-i18n="mpv">MPV</b><small data-i18n="tint7">7 windows</small></div><strong><span data-i18n="from">from</span> €250</strong></div>
+     <div class="tint-item" role="button" tabindex="0" aria-haspopup="dialog" data-body="suv" data-windows="7"><span class="car-mark"><img src="assets/vehicle-suv.jpg" alt="suv vehicle"></span><div><b data-i18n="stationWagon">Station wagon</b><small data-i18n="tint7">7 windows</small></div><strong><span data-i18n="from">from</span> €260</strong></div>
+     <div class="tint-item" role="button" tabindex="0" aria-haspopup="dialog" data-body="large-suv" data-windows="7"><span class="car-mark"><img src="assets/vehicle-large-suv.jpg" alt="large suv vehicle"></span><div><b data-i18n="suv">SUV</b><small data-i18n="tint7">7 windows</small></div><strong><span data-i18n="from">from</span> €260</strong></div>
+     <div class="tint-item" role="button" tabindex="0" aria-haspopup="dialog" data-body="minibus" data-windows="5"><span class="car-mark"><img src="assets/vehicle-minibus.jpg" alt="minibus vehicle"></span><div><b data-i18n="bus">Bus</b><small data-i18n="tint5fixed">5 fixed windows</small></div><strong><span data-i18n="from">from</span> €300</strong></div>
     </div>
    </article>
    <article class="price-card compact-price"><span class="price-icon">✧</span><p class="eyebrow" data-i18n="waxCategory">FINISH & PROTECTION</p><h3 data-i18n="waxTitle">Wax treatment</h3><strong class="price-value">€130</strong><p data-i18n="waxNote">Extra gloss and a protective finish.</p></article>
@@ -78,4 +83,21 @@
 </section>
 <div class="prices-back"><a class="btn outline" href="index.html#home" data-i18n="backHome">← Back to home</a></div>
 </main><footer class="site-footer"><span>© LUXAR Premium Auto Detailing</span><a href="https://www.instagram.com/luxar_detailing_nl/" target="_blank" rel="noopener">Instagram</a></footer>
-<script src="script.js"></script></body></html>
+<div class="tint-modal" id="tintModal" hidden>
+ <div class="tint-modal-backdrop" data-tint-close></div>
+ <section class="tint-modal-panel" role="dialog" aria-modal="true" aria-labelledby="tintModalTitle">
+  <button class="tint-modal-x" type="button" data-tint-close aria-label="Close">×</button>
+  <p class="eyebrow" data-i18n="tintCategory">WINDOW TINTING</p>
+  <h2 id="tintModalTitle" data-i18n="tintModalTitle">Window tinting layout</h2>
+  <p class="tint-modal-intro" data-i18n="tintModalIntro">Drag to rotate the 3D vehicle. Scroll to zoom and select glass areas below.</p>
+  <div class="tint-viewer-wrap">
+   <div class="tint-modal-car" id="tintModalCar" aria-label="Interactive 3D vehicle viewer"></div>
+   <div class="tint-viewer-hint">↔ Drag to rotate · Scroll to zoom</div>
+  </div>
+  <div class="tint-glass-list" id="tintGlassList" aria-label="Included glass areas"></div>
+  <div class="tint-modal-count" id="tintModalCount"></div>
+  <p class="tint-modal-note" data-i18n="tintModalNote">Illustrative side view. Exact glass coverage is confirmed for the specific vehicle model.</p>
+  <button class="btn outline tint-modal-close" type="button" data-tint-close data-i18n="tintModalClose">Close</button>
+ </section>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script><script src="script.js"></script></body></html>
